@@ -1,17 +1,19 @@
 from enum import Enum
+from typing import TypedDict
 
 
 class ANIMALS(Enum):
     SHEEP = "Sheep"
-    WOLVES = "Wolves"
+    WOLF = "Wolf"
     SLOTH = "Sloth"
-    LION = "Lion"
-    BUNNIES = "Bunnies"
-    HAWK = "Hawk"
-    HORSES = "Horses"
-    BEAVERS = "Beavers"
-    ALLIGATORS = "Alligators"
-    BEARS = "Bears"
+    CAT = "Cat"
+    BUNNY = "Bunny"
+    BIRD = "Bird"
+    HORSE = "Horse"
+    BEAVER = "Beaver"
+    REPTILE = "Reptile"
+    BEAR = "Bear"
+    MONKEY = "Monkey"
 
 
 class POLITICAL_PLATFORMS(Enum):
@@ -19,53 +21,52 @@ class POLITICAL_PLATFORMS(Enum):
     INCREASED_SPEED_LIMIT = "Increased Speed Limit"
     EXPANDED_HUNTING_GROUNDS = "Expanded Hunting Grounds"
     SUBSIDIZED_CHILDCARE = "Subsidized Childcare"
+    TREE_PRESERVATION = "Tree Preservation"
     TREE_PRESERVATION_ACT = "Tree Preservation Act"
     EXTENDED_HIBERNATION_LEAVE = "Extended Hibernation Leave"
-    INCREASED_DAM_CONSTRUCTION_PERMITS = "Increased Dam Construction Permits"
     RIVER_RESTORATION_FUNDING = "River Restoration Funding"
-    FOR_ALL = "For All Platforms"
-    AGAINST_ALL = "Against All Platforms"
+    BETTER_PASTURE_MAINTENANCE = "Better Pasture Maintenance"
+    COMMUNAL_GRAZING_RIGHTS = "Communal Grazing Rights"
+    BERRY_PICKING_QUOTAS = "Berry Picking Quotas"
+    GARBAGE_ACCESS_RIGHTS = "Garbage Access Rights"
+    MIGRATION_REST_STOPS = "Migration Rest Stops"
+    QUIET_HOURS_FOR_NOCTURNAL_SPECIES = "Quiet Hours for Nocturnal Species"
+    MORE_CROSSING_GUARDS = "More Crossing Guards"
+    INCREASE_PUBLIC_SAFETY = "Increase Public Safety"
+    EXTENDED_NAP_HOURS = "Extended Nap Hours"
+    ALL = "All"
+    NONE = "None"
 
 
-ANIMAL_POSITIONS = {
-    ANIMALS.SHEEP: {
-        "for": [POLITICAL_PLATFORMS.FOR_ALL],
-        "against": []
-    },
-    ANIMALS.WOLVES: {
-        "for": [],
-        "against": [POLITICAL_PLATFORMS.AGAINST_ALL]
-    },
-    ANIMALS.SLOTH: {
-        "for": [POLITICAL_PLATFORMS.UNIVERSAL_BASIC_FOOD_SUPPLY],
-        "against": [POLITICAL_PLATFORMS.INCREASED_SPEED_LIMIT]
-    },
-    ANIMALS.LION: {
-        "for": [POLITICAL_PLATFORMS.EXPANDED_HUNTING_GROUNDS],
-        "against": [POLITICAL_PLATFORMS.UNIVERSAL_BASIC_FOOD_SUPPLY]
-    },
-    ANIMALS.BUNNIES: {
-        "for": [POLITICAL_PLATFORMS.SUBSIDIZED_CHILDCARE],
-        "against": [POLITICAL_PLATFORMS.EXPANDED_HUNTING_GROUNDS]
-    },
-    ANIMALS.HAWK: {
-        "for": [POLITICAL_PLATFORMS.TREE_PRESERVATION_ACT],
-        "against": [POLITICAL_PLATFORMS.EXTENDED_HIBERNATION_LEAVE]
-    },
-    ANIMALS.HORSES: {
-        "for": [POLITICAL_PLATFORMS.INCREASED_SPEED_LIMIT],
-        "against": [POLITICAL_PLATFORMS.TREE_PRESERVATION_ACT]
-    },
-    ANIMALS.BEAVERS: {
-        "for": [POLITICAL_PLATFORMS.INCREASED_DAM_CONSTRUCTION_PERMITS],
-        "against": [POLITICAL_PLATFORMS.RIVER_RESTORATION_FUNDING]
-    },
-    ANIMALS.ALLIGATORS: {
-        "for": [POLITICAL_PLATFORMS.RIVER_RESTORATION_FUNDING],
-        "against": [POLITICAL_PLATFORMS.SUBSIDIZED_CHILDCARE]
-    },
-    ANIMALS.BEARS: {
-        "for": [POLITICAL_PLATFORMS.EXTENDED_HIBERNATION_LEAVE],
-        "against": [POLITICAL_PLATFORMS.INCREASED_DAM_CONSTRUCTION_PERMITS]
-    }
+class GENDER(Enum):
+    MALE = "Male"
+    FEMALE = "Female"
+
+
+class PoliticalPositions(TypedDict):
+    FOR: list[POLITICAL_PLATFORMS]
+    AGAINST: list[POLITICAL_PLATFORMS]
+
+
+CSV_COLUMN_HEADERS_TO_VOTER_INPUTS: dict[str, str] = {
+    'Species': 'species',
+    'File Name': 'filename',
+    'Male or Female': 'gender',
+    'Animal Name': 'name',
+    'Politics (Positive)': 'positive_positions',
+    'Politics (Negative)': 'negative_positions'
+}
+
+CSV_SPECIES_TO_ANIMALS: dict[str, ANIMALS] = {
+    'Bear': ANIMALS.BEAR,
+    'Beaver': ANIMALS.BEAVER,
+    'Bird': ANIMALS.BIRD,
+    'Bunny': ANIMALS.BUNNY,
+    'Cat': ANIMALS.CAT,
+    'Horse': ANIMALS.HORSE,
+    'Monkey': ANIMALS.MONKEY,
+    'Reptile': ANIMALS.REPTILE,
+    'Sheep': ANIMALS.SHEEP,
+    'Sloth': ANIMALS.SLOTH,
+    'Wolf': ANIMALS.WOLF
 }
