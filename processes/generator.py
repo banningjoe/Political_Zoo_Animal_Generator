@@ -12,7 +12,7 @@ from tools.helper import (
 )
 
 
-def generate_animal_list(save_directory: Path, image_directory: Path, animal_data_csv_path: Path) -> list[Voter]:
+def generate_animal_list(image_directory: Path, animal_data_csv_path: Path) -> list[Voter]:
     animal_list: list[Voter] = []
     with open(animal_data_csv_path, newline='', encoding='windows-1252') as csvfile:
         rows = csv.reader(csvfile)

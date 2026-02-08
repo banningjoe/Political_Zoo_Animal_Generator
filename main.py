@@ -22,7 +22,6 @@ def main() -> None:
     
     print(f"Loading animals from {args.csv_path}...")
     animals = generate_animal_list(
-        save_directory=args.save_dir,
         image_directory=args.image_dir,
         animal_data_csv_path=args.csv_path
     )
